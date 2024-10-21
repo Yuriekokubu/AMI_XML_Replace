@@ -2,169 +2,169 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="favicon.ico">
-    <title>Replace Service</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-image: url('bear.jpg');
-            background-color: #f0f2f5;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="favicon.ico">
+  <title>Replace Service</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('bear.jpg');
+      background-color: #f0f2f5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-        .container {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
-            text-align: center;
-        }
+    .container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+      text-align: center;
+    }
 
-        h1 {
-            color: #333;
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
+    h1 {
+      color: #333;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
 
-        input[type="file"] {
-            display: none;
-        }
+    input[type="file"] {
+      display: none;
+    }
 
-        label {
-            font-size: 16px;
-            color: white;
-            background-color: #007bff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+    label {
+      font-size: 16px;
+      color: white;
+      background-color: #007bff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
 
-        label:hover {
-            background-color: #0056b3;
-        }
+    label:hover {
+      background-color: #0056b3;
+    }
 
-        button {
-            background-color: #28a745;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 20px;
-            transition: background-color 0.3s ease;
-        }
+    button {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
 
-        button:hover {
-            background-color: #218838;
-        }
+    button:hover {
+      background-color: #218838;
+    }
 
-        .file-info {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #333;
-        }
+    .file-info {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #333;
+    }
 
-        .file-info span {
-            font-weight: bold;
-        }
+    .file-info span {
+      font-weight: bold;
+    }
 
-        .file-icon {
-            margin-right: 8px;
-        }
-    </style>
+    .file-icon {
+      margin-right: 8px;
+    }
+  </style>
 </head>
 
 <body>
 
-    <div class="container">
-        <h1>Upload XLSX to Generate XML</h1>
-        <input type="file" id="fileInput" accept=".xlsx" onchange="displayFileInfo()" />
-        <label for="fileInput">Choose XLSX File</label>
-        <br>
-        <div id="fileInfo" class="file-info" style="display: none;">
-            <img src="https://img.icons8.com/ios/50/000000/ms-excel.png" alt="Excel Icon" class="file-icon" width="24"
-                height="24" />
-            <span id="fileName">Filename.xlsx</span>
-            <br>
-            <span id="rowCount">0</span> rows will be processed.
-        </div>
-        <button id="generateBtn" onclick="processExcel()" style="display: none;">Generate XML and Download ZIP</button>
+  <div class="container">
+    <h1>Upload XLSX to Generate XML</h1>
+    <input type="file" id="fileInput" accept=".xlsx" onchange="displayFileInfo()" />
+    <label for="fileInput">Choose XLSX File</label>
+    <br>
+    <div id="fileInfo" class="file-info" style="display: none;">
+      <img src="https://img.icons8.com/ios/50/000000/ms-excel.png" alt="Excel Icon" class="file-icon" width="24"
+        height="24" />
+      <span id="fileName">Filename.xlsx</span>
+      <br>
+      <span id="rowCount">0</span> rows will be processed.
     </div>
+    <button id="generateBtn" onclick="processExcel()" style="display: none;">Generate XML and Download ZIP</button>
+  </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 
-    <script>
-        function displayFileInfo() {
-            const fileInput = document.getElementById('fileInput').files[0];
-            if (fileInput) {
-                document.getElementById('fileInfo').style.display = 'block';
-                document.getElementById('fileName').textContent = fileInput.name;
-                document.getElementById('generateBtn').style.display = 'inline-block';
+  <script>
+    function displayFileInfo() {
+      const fileInput = document.getElementById('fileInput').files[0];
+      if (fileInput) {
+        document.getElementById('fileInfo').style.display = 'block';
+        document.getElementById('fileName').textContent = fileInput.name;
+        document.getElementById('generateBtn').style.display = 'inline-block';
 
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    const data = new Uint8Array(e.target.result);
-                    const workbook = XLSX.read(data, { type: 'array' });
-                    const sheetName = workbook.SheetNames[0];
-                    const sheet = workbook.Sheets[sheetName];
-                    const rows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: '' });
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const data = new Uint8Array(e.target.result);
+          const workbook = XLSX.read(data, { type: 'array' });
+          const sheetName = workbook.SheetNames[0];
+          const sheet = workbook.Sheets[sheetName];
+          const rows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: '' });
 
-                    // Display number of rows to be processed, minus header rows
-                    const rowCount = rows.length - 2; // Start from row 3
-                    document.getElementById('rowCount').textContent = rowCount;
-                };
+          // Display number of rows to be processed, minus header rows
+          const rowCount = rows.length - 2; // Start from row 3
+          document.getElementById('rowCount').textContent = rowCount;
+        };
 
-                reader.readAsArrayBuffer(fileInput);
-            }
-        }
+        reader.readAsArrayBuffer(fileInput);
+      }
+    }
 
-        function processExcel() {
-            const fileInput = document.getElementById('fileInput').files[0];
+    function processExcel() {
+      const fileInput = document.getElementById('fileInput').files[0];
 
-            if (!fileInput) {
-                alert('Please upload an XLSX file');
-                return;
-            }
+      if (!fileInput) {
+        alert('Please upload an XLSX file');
+        return;
+      }
 
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                const data = new Uint8Array(e.target.result);
-                const workbook = XLSX.read(data, { type: 'array' });
-                const sheetName = workbook.SheetNames[0];
-                const sheet = workbook.Sheets[sheetName];
-                const rows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: '' });
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const data = new Uint8Array(e.target.result);
+        const workbook = XLSX.read(data, { type: 'array' });
+        const sheetName = workbook.SheetNames[0];
+        const sheet = workbook.Sheets[sheetName];
+        const rows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: '' });
 
-                const xmlFiles = [];
-                const zip = new JSZip();
+        const xmlFiles = [];
+        const zip = new JSZip();
 
-                for (let i = 2; i < rows.length; i++) {
-                    const row = rows[i];
+        for (let i = 2; i < rows.length; i++) {
+          const row = rows[i];
 
-                    // Mapping the relevant columns
-                    const column_H = row[7];
-                    const column_I = row[8];
-                    const column_O = row[14];
-                    const column_M = row[12];
-                    const column_R = row[17];
-                    const column_J = row[9];
-                    const column_K = row[10];
-                    const column_P = row[15];
-                    const column_Q = row[16];
+          // Mapping the relevant columns
+          const column_H = row[7];
+          const column_I = row[8];
+          const column_O = row[14];
+          const column_M = row[12];
+          const column_R = row[17];
+          const column_J = row[9];
+          const column_K = row[10];
+          const column_P = row[15];
+          const column_Q = row[16];
 
-                    // File 1
-                    const file1 = `<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+          // File 1
+          const file1 = `<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <ConfigurationBatch xmlns="http://www.itron.com/mdm/configuration/2008/04">
   <ConfigurationTransfers>
     <ConfigurationTransfer xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
@@ -204,8 +204,8 @@
   </ConfigurationTransfers>
 </ConfigurationBatch>`;
 
-                    // File 2
-                    const file2 = `<?xml version="1.0" encoding="utf-8"?>
+          // File 2
+          const file2 = `<?xml version="1.0" encoding="utf-8"?>
 <MasterDataImport xmlns="http://www.itron.com/masterdata/2013/03" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SetServicePoint ServicePointId="${column_H}">
     <SetMeter MeterId="${column_I}" MeterNumber="${column_I}">
@@ -213,7 +213,8 @@
         <SetDevice DeviceId="${column_J}" DeviceType="${column_K}">
           <ApplicationGroups>
             <ApplicationGroup Name="App All">
-            </ApplicationGroups>
+            </ApplicationGroup>
+          </ApplicationGroups>
         </SetDevice>
       </SetChannel>
       <MeterLinkRange Start="BOT" End="${column_M}">
@@ -226,7 +227,8 @@
         <SetDevice DeviceId="${column_P}" DeviceType="${column_Q}">
           <ApplicationGroups>
             <ApplicationGroup Name="App All">
-            </ApplicationGroups>
+            </ApplicationGroup>
+          </ApplicationGroups>
         </SetDevice>
       </SetChannel>
       <MeterLinkRange Start="${column_M}" End="EOT">
@@ -235,42 +237,42 @@
   </SetServicePoint>
 </MasterDataImport>`;
 
-                    // Add the files to zip
-                    zip.file(`IEE_Replace_${column_H}_${column_I}_${column_O}.xml`, file1);
-                    zip.file(`OWOCMDI_Replace_${column_H}_${column_I}_${column_O}.xml`, file2);
-                }
-
-                // Get the current date and time in the Asia/Bangkok timezone
-                // Get the current date and time in the Asia/Bangkok timezone
-                const now = new Date();
-                const options = {
-                    timeZone: 'Asia/Bangkok',
-                    year: 'numeric',
-                    month: '2-digit',
-                    day: '2-digit',
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    second: '2-digit',
-                    hour12: false
-                };
-                const formatter = new Intl.DateTimeFormat('en-GB', options);
-                const parts = formatter.formatToParts(now);
-
-                // Format the date and time in the required format: YYYYMMDD_HHMMSS
-                const timestamp = `${parts[4].value}${parts[2].value}${parts[0].value}_${parts[6].value}${parts[8].value}${parts[10].value}`;
-
-                // Define the ZIP file name using the formatted timestamp
-                const zipFileName = `IEE_OWOCMDI_REPLACE_${timestamp}.zip`;
-
-                // Generate the zip and trigger the download
-                zip.generateAsync({ type: 'blob' }).then(function (content) {
-                    saveAs(content, zipFileName);
-                });
-            };
-
-            reader.readAsArrayBuffer(fileInput);
+          // Add the files to zip
+          zip.file(`IEE_Replace_${column_H}_${column_I}_${column_O}.xml`, file1);
+          zip.file(`OWOCMDI_Replace_${column_H}_${column_I}_${column_O}.xml`, file2);
         }
-    </script>
+
+        // Get the current date and time in the Asia/Bangkok timezone
+        // Get the current date and time in the Asia/Bangkok timezone
+        const now = new Date();
+        const options = {
+          timeZone: 'Asia/Bangkok',
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false
+        };
+        const formatter = new Intl.DateTimeFormat('en-GB', options);
+        const parts = formatter.formatToParts(now);
+
+        // Format the date and time in the required format: YYYYMMDD_HHMMSS
+        const timestamp = `${parts[4].value}${parts[2].value}${parts[0].value}_${parts[6].value}${parts[8].value}${parts[10].value}`;
+
+        // Define the ZIP file name using the formatted timestamp
+        const zipFileName = `IEE_OWOCMDI_REPLACE_${timestamp}.zip`;
+
+        // Generate the zip and trigger the download
+        zip.generateAsync({ type: 'blob' }).then(function (content) {
+          saveAs(content, zipFileName);
+        });
+      };
+
+      reader.readAsArrayBuffer(fileInput);
+    }
+  </script>
 
 </body>
 
